@@ -31,7 +31,7 @@ public class BankSystem {
                 int accountNumber = sc.nextInt();
                 System.out.println("Enter account type");
                 AccountType accountType = null;
-                try {
+             /*   try {
                     String accountTypes = sc.next();
                     accountType = AccountType.valueOf(accountTypes);
                 } catch (IllegalArgumentException e) {
@@ -39,7 +39,7 @@ public class BankSystem {
                     sc.nextLine();
                     i--;
                     continue;
-                }
+                }*/
                 System.out.println("enter balance");
                 double balance = sc.nextDouble();
                 BankAccount account = new BankAccount(accountNumber, accountType, balance);
