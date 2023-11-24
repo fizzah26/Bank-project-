@@ -18,6 +18,5 @@ public class BankSystem {
         bank.displayAccountInfo(b1.getAccountNumber());
     }
 
-    //hello world
 }
 
