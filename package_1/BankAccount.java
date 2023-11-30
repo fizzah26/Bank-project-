@@ -1,14 +1,17 @@
 package package_1;
 
-    public class BankAccount {
+import java.util.ArrayList;
+
+public class BankAccount {
         private  int accountNumber=0;
         private AccountType accountType;
         double balance=0;
+        ArrayList<BankAccount> newAccount= new ArrayList<>();
 
-        public BankAccount( int accountNumber,AccountType accountType, double balance) {
-            this.accountNumber = accountNumber;
+        public BankAccount(AccountType accountType, double balance) {
             this.accountType = accountType;
             this.balance = balance;
+            newAccount.add(this);
         }
 
         public int getAccountNumber() {
