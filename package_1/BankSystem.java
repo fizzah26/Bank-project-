@@ -1,12 +1,29 @@
 package package_1;
 
-import java.sql.SQLOutput;
+import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class BankSystem {
     public static void main(String[] args) {
         Bank bank = new Bank();
+        File file=new File("final bank project.txt");
+        FileWriter writer=null;
+        try{
+            file.createNewFile();
+        }
+        catch(IOException e){
+            System.out.println("exception occured!");
+            e.printStackTrace();
+        }
+
+        try{
+            writer=new FileWriter("final bank project.txt");
+        }
+        catch(IOException e){
+            System.out.println("Exception occured!!");
+            e.printStackTrace();
+        }
 
         System.out.println("choose an option:");
         Scanner sc = new Scanner(System.in);
@@ -33,6 +50,7 @@ public class BankSystem {
                     BankAccount b1 = new BankAccount(accType, balance);
                     AccountHolder a1 = new AccountHolder(name, add, num);
                     bank.createAccount(b1, a1);
+                    saveAccountToFile(writer, b1, a1);
                     break;
                 case 2:
                     System.out.println("Enter account no:");
@@ -64,8 +82,27 @@ public class BankSystem {
             option=sc.nextInt();
             sc.nextLine();
         }
+        try {
+            writer.close();
+        }
+        catch (IOException e){
+            System.out.println("exception occured!!");
+            e.printStackTrace();
+        }
+
         sc.close();
     }
+    private static void saveAccountToFile(FileWriter writer, BankAccount account, AccountHolder accountHolder) {
+        try {
+            writer.append(account.toString()).append(",").append(accountHolder.toString()).append("\n");
+            writer.flush();
+
+        } catch (IOException e) {
+            System.out.println("Exception occurred while writing to the file!");
+            e.printStackTrace();
+        }
+    }
 }
+
 
 
