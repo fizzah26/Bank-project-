@@ -44,7 +44,7 @@ public class BankSystem {
                     System.out.println("Enter phone number:");
                     String num = sc.nextLine();
                     System.out.println("Enter the desired account type:");
-                    AccountType accType = AccountType.valueOf(sc.nextLine());
+                    AccountType accType = AccountType.valueOf(sc.nextLine().toUpperCase());
                     System.out.println("enter amount you want to deposit");
                     double balance = sc.nextDouble();
                     BankAccount b1 = new BankAccount(accType, balance);

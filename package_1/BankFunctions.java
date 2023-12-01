@@ -1,5 +1,4 @@
 package package_1;
-
 public interface BankFunctions {
     void depositCash(int accountNumber,double amount);
     void withdrawCash(int accountNumber,double amount);
